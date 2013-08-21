@@ -56,6 +56,7 @@ UKRAINIAN_DORIAN_SCALE = [0, 2, 3, 6, 7, 9, 10]
 WHOLE_TONE_SCALE = [0, 2, 4, 6, 8, 10]
 MAJOR = [0, 2, 4, 5, 7, 9, 11]
 MINOR = [0, 2, 3, 5, 7, 8, 10]
+CHROMATIC = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
 
 
 """
@@ -67,7 +68,8 @@ buildScale([0,2,4],0,128)
 """
 
 
-def buildScale(s, min_note=0, max_note=128):
+def build_scale(key, scale, min_note=0, max_note=128):
+    s = [s + key for s in scale]
     return [x + (12 * j)
         for j in range(12)
         for x in s
