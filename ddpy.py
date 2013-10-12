@@ -10,6 +10,11 @@ def to_midi(table, filename):
         None
 
     >>> to_midi([{'year':2010,'gdp':8},{'year':2011,'gdp':9}], 'gdp.midi')
+
+    >>> to_midi([[2010,8],[2011,9]], 'gdp.midi')
+    Traceback (most recent call last):
+        ...
+    ValueError
     '''
 
 
@@ -25,7 +30,7 @@ def _check_types(table):
 
     >>> _check_types([{'year':2010,'gdp':8},{'year':2011,'gdp':9}])
 
-    >>> _check_types([[2010,8],[2011,9]])
+    >>> _check_types({2010:8,2011:9})
     Traceback (most recent call last):
         ...
     ValueError
@@ -34,13 +39,10 @@ def _check_types(table):
         pass
     elif _is_like_dict(table):
         are_iterable = map(_is_iterable, table.values())
-        if not set(types) == {True}:
+        if not set(are_iterable) == {True}:
             raise ValueError
     elif _is_iterable(table):
-        first = next(table)
-        table = itertools.chain([first], table)
-        if not _is_like_dict(first):
-            raise ValueError
+        pass
     else:
         raise ValueError
 
