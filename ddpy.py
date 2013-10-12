@@ -38,12 +38,21 @@ def _check_types(table):
         if not set(types) == {True}:
             raise ValueError
     elif _is_iterable(table):
-        first = table.next()
+        first = next(table)
         table = itertools.chain([first], table)
         if not _is_like_dict(first):
             raise ValueError
     else:
         raise ValueError
+
+def _is_like_dataframe(thing):
+    return hasattr(thing, 'to_dict')
+
+def _is_like_dict(thing):
+    return hasattr(thing, 'keys')
+
+def _is_iterable(thing):
+    return hasattr(thing, 'next') and hasattr(thing, '__iter__')
 
 if __name__ == '__main__':
     import doctest
