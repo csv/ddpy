@@ -51,7 +51,7 @@ def _is_like_dict(thing):
     return hasattr(thing, 'keys')
 
 def _is_iterable(thing):
-    return hasattr(thing, 'next') and hasattr(thing, '__iter__')
+    return hasattr(thing, '__iter__')
 
 if __name__ == '__main__':
     import doctest
