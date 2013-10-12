@@ -29,6 +29,8 @@ def _check_types(table):
     >>> _check_types([{'year':2010,'gdp':8},{'year':2011,'gdp':9}])
 
     >>> _check_types([[2010,8],[2011,9]])
+    Traceback (most recent call last):
+        ...
     ValueError
     '''
     if _is_like_dataframe(table):
