@@ -8,8 +8,11 @@ def to_midi(table, filename):
         None
 
     >>> to_midi([{'year':2010,'gdp':8},{'year':2011,'gdp':9}], 'gdp.midi')
-    None
 
     >>> to_midi([[2010,8],[2011,9]], 'gdp.midi')
     ValueError
     '''
+
+if __name__ == '__main__':
+    import doctest
+    doctest.testmod()
