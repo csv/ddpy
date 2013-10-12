@@ -32,6 +32,17 @@ def to_midi(table, filename):
         if not _is_like_dict(row):
             raise TypeError
 
+def from_midi(filename):
+    '''
+    Args:
+        filename: A string (like 'input/data.midi')
+    Returns:
+        An iterable of dictionaries
+
+    >>> type(from_midi('gdp.midi'))
+    <type 'generator'>
+    '''
+    return ({} for row in range(3))
 
 def _check_types(table):
     '''
