@@ -1,17 +1,18 @@
 import itertools
 
-def to_midi(table, filename):
+def to_midi(table, filename, params):
     '''
     Args:
         table: An iterable of dict-likes, a dict-like of iterables,
                or a pandas.DataFrame-like.
         filename: A string (like 'output/data.midi')
+        params: A dict-like of yet-to-be-decided structure
     Returns:
         None
 
-    >>> to_midi([{'year':2010,'gdp':8},{'year':2011,'gdp':9}], 'gdp.midi')
+    >>> to_midi([{'year':2010,'gdp':8},{'year':2011,'gdp':9}], 'gdp.midi', {})
 
-    >>> to_midi([[2010,8],[2011,9]], 'gdp.midi')
+    >>> to_midi([[2010,8],[2011,9]], 'gdp.midi', {})
     Traceback (most recent call last):
         ...
     TypeError
@@ -37,12 +38,13 @@ def from_midi(filename):
     Args:
         filename: A string (like 'input/data.midi')
     Returns:
-        An iterable of dictionaries
+        An iterable of dictionaries (table) and
+        a dictionary of musical parameters (music)
 
-    >>> type(from_midi('gdp.midi'))
-    <type 'generator'>
+    >>> map(type, from_midi('gdp.midi'))
+    [<type 'generator'>, <type 'dict'>]
     '''
-    return ({} for row in range(3))
+    return (({} for row in range(3)), {})
 
 def _check_types(table):
     '''
