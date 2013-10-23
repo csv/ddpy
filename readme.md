@@ -53,12 +53,11 @@ The pitches are determined by the same means as for floats.
 
 
 ## Tweaking output
-
 ### Volume
+#### Specifying in `to_midi`
 By default, all instruments play at full volume. There are two ways of
 specifying volume: by instrument and by note.
 
-#### Specifying in `to_midi`
 To specify volume by instrument, pass a dictionary where the keys are
 column names and the values are instrument volumes, represented as numbers
 between 0 and 1. Columns for which you don't specify a volume use
@@ -70,9 +69,16 @@ full volume (1) by default.
 The example above shows how to specify volume by instrument when creating
 the file with `to_midi`.
 
+To specify a volume for each note, you should structure your table such
+that cells contain `(data,volume)` tuples rather than simple `data`
+values. For example, the following code would do the exact same thing as
+the previous code.
 
-With any of the data types, you may specify a volume for each note.
- two-item tuple
+    table = [{'debt':(9001,0.8),'cats':8},{'debt':(3,0.8),'cats':23}]
+    to_midi(table)
+
+If you use both methods to specify volume, the volume for a given note
+will be the product of the two volumes.
 
 #### Reading in `from_midi`
 Tuple
