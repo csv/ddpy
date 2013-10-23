@@ -27,5 +27,8 @@ The following data types can be stored in a column
 
 * `unicode` or `str`
 * `pandas.Factor` 
+* `bool`
 * `int`, `numpy.int64`, &c.
 * `float`, `numpy.float64`, &c.
+
+The following sections explain how columns are structured by data type.
