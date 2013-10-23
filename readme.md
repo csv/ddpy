@@ -25,10 +25,60 @@ row in the table gets represented as a beat.
 ## Columns and data types
 The following data types can be stored in a column
 
-* `unicode` or `str`
-* `pandas.Factor` 
-* `bool`
-* `int`, `numpy.int64`, &c.
-* `float`, `numpy.float64`, &c.
+* Strings (`unicode` or `str`)
+* Factors (`pandas.Factor` )
+* Booleans (`bool`)
+* Integers (`int`, `numpy.int64`, &c.)
+* Floats (`float`, `numpy.float64`, &c.)
 
 The following sections explain how columns are structured by data type.
+
+### Strings
+Strings (`unicode` or `str`) are represented as lyrics.
+
+### Factors
+Factors (`pandas.Factor`) are represented as drum tracks, with a mapping
+between drum notes and factor levels.
+
+### Booleans
+
+
+### Floats
+Floats are represented as continuous notes merging into each other through
+pitch bends.
+
+### Integers
+Integers are represented as discrete notes.
+The pitches are determined by the same means as for floats.
+
+
+## Tweaking output
+
+### Volume
+By default, all instruments play at full volume. There are two ways of
+specifying volume: by instrument and by note.
+
+#### Specifying in `to_midi`
+To specify volume by instrument, pass a dictionary where the keys are
+column names and the values are instrument volumes, represented as numbers
+between 0 and 1. Columns for which you don't specify a volume use
+full volume (1) by default.
+
+    table = [{'debt':9001,'cats':8},{'debt':3,'cats':23}]
+    to_midi(table, volume = {'debt': 0.8})
+
+The example above shows how to specify volume by instrument when creating
+the file with `to_midi`.
+
+
+With any of the data types, you may specify a volume for each note.
+ two-item tuple
+
+#### Reading in `from_midi`
+Tuple
+
+By default, no volume tuples
+
+When you reading a file with `from_midi`, the
+instrument-level volumes are not returned;
+they're just read as tuples.
