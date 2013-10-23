@@ -22,4 +22,10 @@ structures for representating a table.
 Each column in the table gets represented as an instrument, and each
 row in the table gets represented as a beat.
 
-## Column translations
+## Columns and data types
+The following data types can be stored in a column
+
+* `unicode` or `str`
+* `pandas.Factor` 
+* `int`, `numpy.int64`, &c.
+* `float`, `numpy.float64`, &c.
