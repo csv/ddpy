@@ -53,6 +53,19 @@ The pitches are determined by the same means as for floats.
 
 
 ## Tweaking output
+Most of these tweaks to output are set by a keyword argument. These keyword
+arguments can take two structures, which we'll call the table form or the
+column form.
+
+The table form is just a value, and it applies to the full song. For example,
+to set the volume for the full song, you can run `to_midi(table, volume = 0.7)`.
+This is the table form.
+
+The column form allows us to specify different values for each column. This
+form is a dictionary whose keys are column names and values are parameters for
+the different columns. You do not need to specify a key-value pair for each
+column; a default value will be used for any that you don't specify.
+
 ### Volume
 #### Specifying in `to_midi`
 By default, all instruments play at full volume. There are two ways of
@@ -88,3 +101,18 @@ By default, no volume tuples
 When you reading a file with `from_midi`, the
 instrument-level volumes are not returned;
 they're just read as tuples.
+
+
+### Key
+By default, a key of C Major is used
+
+You can change this...
+
+`from_midi` won't give you the key back
+
+### Rounding
+Rounding your data to the key signature destroys information in order to
+make the music sound better. Rounding is turned off by default, but you
+can turn it on
+
+### Tempo
