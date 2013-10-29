@@ -51,6 +51,10 @@ pitch bends.
 Integers are represented as discrete notes.
 The pitches are determined by the same means as for floats.
 
+A MIDI track can contain 16 different channels, and each channel can represent
+128 different notes, numbered 0 to 127. Thus, a single track can represent
+$$128^16 = 2^112$$ different values, which is equivalent to 112 bits.
+
 
 ## Tweaking output
 Most of these tweaks to output are set by a keyword argument. These keyword
