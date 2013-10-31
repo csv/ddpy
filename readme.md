@@ -120,3 +120,40 @@ make the music sound better. Rounding is turned off by default, but you
 can turn it on
 
 ### Tempo
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Each MIDI track has 16 channels, each of which can take 128 values.
+We represent floats and integers in base 128.
+
+$$ 128^8 = 2^\left(7\times8\right) = 2^15 $$
+
+Integers: We use odd tracks for positive numbers and even tracks for
+negative numbers. For positive numbers, he first track corresponds
+to the first place, the third track to the second place, and so on.
+For negative numbers, the second track corresponds to the first place,
+the fourth to the second, and so on.
+
+Floats: We use the first X tracks for the mantissa, the next Y tracks
+for the exponent, and the final track for the sign. The sign is represented
+as 0 or 1, with 0 being negative. Each of these components of the float
+is an integer like above but with fewer than 16 tracks.
+
+This scheme is chosen so that cells containing the exact values 0, 1, 2, ... 127
+will be mapped to the identical number on the first channel in MIDI.
+
+
+
