@@ -24,6 +24,7 @@ def test_one_int_column():
 
     n.assert_equal(observed, expected)
 
+@n.nottest
 def test_one_text_column():
     '''
     A data frame with a single integer column
