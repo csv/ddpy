@@ -22,7 +22,8 @@ def test_one_int_column():
     ])
     observed = df_to_midi(df, bpm = 120)
 
-    n.assert_equal(observed, expected)
+    n.assert_equal(observed.tracks[0].eventList,
+        expected.tracks[0].eventList)
 
 @n.nottest
 def test_one_text_column():
