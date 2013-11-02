@@ -111,6 +111,15 @@ def _is_like_dict(thing):
 def _is_iterable(thing):
     return hasattr(thing, '__iter__')
 
+
+def df_to_midi(df):
+    '''
+    Args:
+        table: A pandas.DataFrame
+    Returns:
+        A MIDI thingy
+    '''
+
 if __name__ == '__main__':
     import doctest
     doctest.testmod()
