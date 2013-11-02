@@ -8,5 +8,11 @@ def test_one_int_column():
         {'guitar':42},
         {'guitar':43},
     ])
-    observed = df_to_midi(df)
-    expected =
+    observed = df_to_midi(df, bpm = 120)
+
+    expected = MIDIFile(1)
+    expected.addTrackName(0,0,"guitar")
+    expected.addTempo(0,0,120)
+    for time,note in enumerate([38, 40, 42, 43]):
+        expected.addNote(0,0,note,time,1,100)
+
