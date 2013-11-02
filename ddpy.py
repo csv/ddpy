@@ -2,32 +2,6 @@ import itertools
 
 from midiutil.MidiFile import MIDIFile
 
-# Create the MIDIFile Object with 1 track
-MyMIDI = MIDIFile(1)
-
-# Tracks are numbered from zero. Times are measured in beats.
-track = 0
-time = 0
-
-# Add track name and tempo.
-MyMIDI.addTrackName(track,time,"Sample Track")
-MyMIDI.addTempo(track,time,120)
-
-# Add a note. addNote expects the following information:
-track = 0
-channel = 0
-pitch = 60
-time = 0
-duration = 1
-volume = 100
-
-MyMIDI.addNote(track,channel,pitch,time,duration,volume)
-
-# And write it to disk.
-binfile = open("output.mid", 'wb')
-MyMIDI.writeFile(binfile)
-binfile.close()
-
 def to_midi(table, filename, *args, **kwargs):
     '''
     Args:
@@ -45,6 +19,8 @@ def to_midi(table, filename, *args, **kwargs):
         ...
     TypeError
     '''
+
+    '''
     _check_types(table)
 
     if _is_like_dataframe(table):
@@ -60,6 +36,13 @@ def to_midi(table, filename, *args, **kwargs):
     for row in dict_table:
         if not _is_like_dict(row):
             raise TypeError
+    '''
+
+    m = df_to_midi(table, *args, **kwargs)
+
+    binfile = open(filename, 'wb')
+    m.writeFile(binfile)
+    binfile.close()
 
 def from_midi(filename):
     '''

@@ -164,3 +164,9 @@ https://wiki.archlinux.org/index.php/timidity#TiMidity.2B.2B_does_not_play_MIDI_
 I'm not liking MIDIUtil; I don't see how to add
 MIDI events other than notes. I might switch to
 http://web.mit.edu/music21/
+
+
+    import pandas, ddpy
+    df = pandas.read_csv('/home/tlevine/Documents/comparing-wifi-usage/data/chicago.csv')
+    ddpy.to_midi(df[['NUMBER OF SESSIONS']] / 600, 'chicago.mid')
+
