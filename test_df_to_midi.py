@@ -1,5 +1,6 @@
 import nose.tools as n
 import pandas
+from midiutil.MidiFile import MIDIFile
 from ddpy import df_to_midi
 
 def test_one_int_column():
@@ -24,8 +25,3 @@ def test_one_int_column():
     observed = df_to_midi(df, bpm = 120)
 
     n.assert_equal(observed, expected)
-
-
-
-
-

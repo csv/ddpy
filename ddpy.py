@@ -28,13 +28,13 @@ binfile = open("output.mid", 'wb')
 MyMIDI.writeFile(binfile)
 binfile.close()
 
-def to_midi(table, filename, params):
+def to_midi(table, filename, *args, **kwargs):
     '''
     Args:
         table: An iterable of dict-likes, a dict-like of iterables,
                or a pandas.DataFrame-like.
         filename: A string (like 'output/data.midi')
-        params: A dict-like of yet-to-be-decided structure
+        *args, **kwargs: passed along to df_to_midi
     Returns:
         None
 
@@ -112,7 +112,7 @@ def _is_iterable(thing):
     return hasattr(thing, '__iter__')
 
 
-def df_to_midi(df):
+def df_to_midi(df, bpm = 180):
     '''
     Args:
         table: A pandas.DataFrame
