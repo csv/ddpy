@@ -29,6 +29,31 @@ def test_one_int_column():
     observed = df_to_midi(df, bpm = 120)
     assert_midi_equal(observed, expected)
 
+def test_two_int_columns():
+    '''
+    A data frame with a single integer column
+    should be converted correctly.
+    '''
+    expected = MIDIFile(2)
+    expected.addTrackName(0,0,"guitar")
+    expected.addTempo(0,0,120)
+    for time,note in enumerate([38, 40, 42, 43]):
+        expected.addNote(0,0,note,time,1,100)
+
+    expected.addTrackName(1,0,"piano")
+    expected.addTempo(1,0,120)
+    for time,note in enumerate([46, 48, 50, 51]):
+        expected.addNote(1,0,note,time,1,100)
+
+    df = pandas.DataFrame([
+        {'guitar':38,'piano':46},
+        {'guitar':40,'piano':48},
+        {'guitar':42,'piano':50},
+        {'guitar':43,'piano':51},
+    ])
+    observed = df_to_midi(df, bpm = 120)
+    assert_midi_equal(observed, expected)
+
 @n.nottest
 def test_one_text_column():
     '''
