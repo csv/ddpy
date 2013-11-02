@@ -119,6 +119,13 @@ def df_to_midi(df, bpm = 180):
     Returns:
         A MIDI thingy
     '''
+    m = MIDIFile(df.shape[1])
+    for col_number, col_name in enumerate(df.columns):
+        m.addTrackName(col_number,0,col_name)
+        m.addTempo(col_number,0,bpm)
+        for time,note in enumerate(df[col_name]):
+            m.addNote(col_number,0,note,time,1,100)
+    return m
 
 if __name__ == '__main__':
     import doctest
