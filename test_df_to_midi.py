@@ -1,3 +1,4 @@
+import nose.tools as n
 import pandas
 from ddpy import df_to_midi
 
@@ -16,3 +17,4 @@ def test_one_int_column():
     for time,note in enumerate([38, 40, 42, 43]):
         expected.addNote(0,0,note,time,1,100)
 
+    n.assert_equal(observed, expected)
