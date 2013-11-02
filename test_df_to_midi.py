@@ -3,6 +3,12 @@ import pandas
 from midiutil.MidiFile import MIDIFile
 from ddpy import df_to_midi
 
+def assert_midi_equal(a, b):
+    n.assert_equal(len(a.tracks), len(b.tracks))
+    for i in range(len(a.tracks)):
+        n.assert_equal(a.tracks[i].eventList,
+                       b.tracks[i].eventList)
+
 def test_one_int_column():
     '''
     A data frame with a single integer column
@@ -21,9 +27,7 @@ def test_one_int_column():
         {'guitar':43},
     ])
     observed = df_to_midi(df, bpm = 120)
-
-    n.assert_equal(observed.tracks[0].eventList,
-        expected.tracks[0].eventList)
+    assert_midi_equal(observed, expected)
 
 @n.nottest
 def test_one_text_column():
