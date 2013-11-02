@@ -36,10 +36,15 @@ def test_one_text_column():
         expected.addNote(0,0,note,time,1,100)
 
     df = pandas.DataFrame([
-        {'vocals':38},
-        {'vocals':40},
-        {'vocals':42},
-        {'vocals':43},
+        {'vocals':'badger'},
+        {'vocals':'badger'},
+        {'vocals':'badger'},
+        {'vocals':'badger'},
+        {'vocals':'badger'},
+        {'vocals':'badger'},
+        {'vocals':'badger'},
+        {'vocals':'mushroom'},
+        {'vocals':'mushroom'},
     ])
     observed = df_to_midi(df, bpm = 120)
 
