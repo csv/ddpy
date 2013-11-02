@@ -158,4 +158,9 @@ will be mapped to the identical number on the first channel in MIDI.
 
 
 timidity -Ow output.mid
+
 https://wiki.archlinux.org/index.php/timidity#TiMidity.2B.2B_does_not_play_MIDI_files
+
+I'm not liking MIDIUtil; I don't see how to add
+MIDI events other than notes. I might switch to
+http://web.mit.edu/music21/
