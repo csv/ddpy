@@ -34,7 +34,12 @@ You'll also need [ddpy]().
     pip install ddpy
 
 ## Tables
+I see the whole world as collections of things,
+which I like to represent as data tables. Rows
+are records, and columns are variables.
 
+I see music the same way. A given sound is a
+function of the various instruments that
 
 
 
