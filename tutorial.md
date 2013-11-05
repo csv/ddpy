@@ -50,9 +50,44 @@ time-related thing), and cells contain notes.
 ![Music as a spreadsheet/table, with cells containing notes like "A4" and "C#3"]()
 
 ## Pandas to MIDI
+ddpy provides a `to_midi` function that converts
+a pandas data frame to a MIDI file.
+
+    to_midi(df, 'output.mid')
+
+It currently supports the following subset of data
+frame possibilities.
+
+* ...
+
+Text is represented as lyric events, integers are
+represented as discrete beats, and floats are
+represented as notes that gradually merge into each other.
+
+The main thing that probably isn't obvious to you is
+how pitches get created. MIDI files can represent 128
+different notes per instrument. If the instrument is a
+piano with exactly 128 keys (white and black), then
+zero correspends to the lowest (left-most) key, and 127
+corresponds to the right-most key. ddpy just passes
+these numbers from our data frame into the MIDI file.
+
+![Piano with 128 keys, numbered from 0 to 127]()
+
+Thus, we can compose some simple music by making columns
+with numbers from 0 to 127.
 
 
+Major scale
 
+
+Minor scale
+
+
+Chord (multiple instruments)
+
+
+Random music of different distributions
 
 ## More about MIDI
 
