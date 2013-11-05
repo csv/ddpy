@@ -90,7 +90,27 @@ Chord (multiple instruments)
 Random music of different distributions
 
 ## More about MIDI
+Let's talk a bit more about MIDI so you get a better
+feel for what is going on. I think of everything as
+tables, so I also think of MIDI files as a format for
+serializating tables, and that's how I'm going to
+explain it.
 
+A MIDI file contains up to 128 different instruments (columns).
+Each of these contains up to 16 different tracks.
+Within each track, we have a bunch of events, including
 
+* note
+* ...
+
+There are also "meta-events", which include
+
+* a
+* b
+
+Why do we need this concept of events? We are using a
+MIDI file, but you can also emit MIDI events directly to
+other software, live. These live events use the same
+protocol as the events in our file.
 
 ## Reshaping our data so the music sounds nice
