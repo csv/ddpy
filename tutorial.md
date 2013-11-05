@@ -136,3 +136,20 @@ in order for the piece to sound good.
     Example with unrelated variables
 
     Example with related variables
+
+Periodic trends work particularly well.
+
+
+
+
+### You're still making music
+
+
+
+
+### Outliers are your solos
+
+
+
+
+### Gaps in data along your time variable are annoying
