@@ -143,8 +143,21 @@ Periodic trends work particularly well.
 
 
 ### You're still making music
+We started with the example of mapping numbers
+to keys on a piano. You should treat this as a
+primitive operation on which more interesting
+things can be built.
 
+Using Grammar of Graphics terminology, let's say
+that pitch is one aesthetic that defines our music.
+We could have other aesthetics, like the key/scale.
+You could have one column defining the note within
+a scale, another column defining the base note of
+the scale, and a third defining whether the scale
+is major or minor. Then you create one column to
+convert to MIDI.
 
+    Example
 
 
 ### Outliers are your solos
