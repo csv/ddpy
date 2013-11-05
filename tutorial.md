@@ -114,3 +114,25 @@ other software, live. These live events use the same
 protocol as the events in our file.
 
 ## Reshaping our data so the music sounds nice
+I've come up with a few elements in the production of
+interesting data music.
+
+### Data must have a noticeable pattern.
+Random music doesn't sound that interesting
+
+    Example
+
+Similarly, empirical data that are effectively
+random aren't that interesting either.
+
+    Example
+
+This is obvious with one instrument, but it
+can be easy to forget when you add a second;
+the second instrument normally needs to have
+some relationship with the first instrument
+in order for the piece to sound good.
+
+    Example with unrelated variables
+
+    Example with related variables
