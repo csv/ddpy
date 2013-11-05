@@ -113,9 +113,11 @@ MIDI file, but you can also emit MIDI events directly to
 other software, live. These live events use the same
 protocol as the events in our file.
 
-## Reshaping our data so the music sounds nice
+## Preparing our data so the music sounds nice
 I've come up with a few elements in the production of
 interesting data music.
+
+scaling
 
 ### Data must have a noticeable pattern.
 Random music doesn't sound that interesting
@@ -166,9 +168,34 @@ of varied resolution (for example, monthly versus daily).
 
     Example
 
-### Outliers are your solos
-
-
 
 
 ### Gaps in data along your time variable are annoying
+
+### Outliers are your solos
+If you follow the advice above, you'll have a very
+coherent piece, where everything within in relates to
+everything else. This in itself gets boring, but it
+allows you to create interesting sequences that
+sharply contrast the rest of the piece. And these
+interesting sequences naturally arise if you have
+outliers.
+
+    Example
+
+This is actually the same for data visuals;
+people often focus quite strongly on outliers
+in graphs.
+
+    Equivalent graph example
+
+    ![Equivalent graph]()
+
+Data music, just like data visuals, can be set up
+to emphasize specific parts of a dataset. That is,
+you could use the same dataset to produce one
+song or graph that emphasizes an trend and one that
+completely ignores it.
+
+Anyway, keep in mind that outliers make your music
+interesting.
