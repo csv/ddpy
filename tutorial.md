@@ -39,9 +39,15 @@ which I like to represent as data tables. Rows
 are records, and columns are variables.
 
 I see music the same way. A given sound is a
-function of the various instruments that
+function of the notes that are being played by
+various instruments, and a song consists of a
+collection of sounds. Thus, columns are
+instruments, rows are beats (or some other
+time-related thing), and cells contain notes.
 
+![Ordinary sheet music]()
 
+![Music as a spreadsheet/table, with cells containing notes like "A4" and "C#3"]()
 
 ## Pandas to MIDI
 
