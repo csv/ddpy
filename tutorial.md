@@ -159,6 +159,12 @@ convert to MIDI.
 
     Example
 
+Also, rows in your dataset could correspond to things
+other than beats, like a measure, a phrase, or a stanza.
+This is especially helpful when you're dealing with data
+of varied resolution (for example, monthly versus daily).
+
+    Example
 
 ### Outliers are your solos
 
