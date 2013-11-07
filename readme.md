@@ -1,172 +1,369 @@
-ddpy
-===================
-Rather than mere [data-driven rhythms](https://github.com/csv/ddr),
-this is data-driven music in python.
+Data music for big data analysis
+=====
 
-More precisely, ddpy serializes tables in python to midi files and
-deserializes midi files to tables. It provides a `to_midi` function
-and a `from_midi` function.
+## Introduction
+Visualization can only support so many variables.
+In order to study high-dimensional datasets,
+we need to leverage more senses, like the sense of sound.
 
-We plan on adding `to_midi` and `from_midi` as `pandas.DataFrame`
-methods eventually.
+### History of ddpy
+[csv soundsystem](http://csvsoundsystem.com) makes
+music from data, and we have developed a few tools
+to help us do that. We started out by with disgusting
+hacks in R, which we eventually abstracted into a
+package called
+[data-driven rhythms (ddr)](https://github.com/csv/ddr).
+dd**py** is confusingly named after the package dd**r**,
+even though there's no pun anymore.
+The API for ddpy is inspired largely by a prototype
+we build for making music
+[from Google Spreadsheets](https://github.com/csv/sheetmusic).
 
-## Table structure
-In the present documentation, we use "table" in a rather generic way.
-It refers to a collection of things (rows), with the same attributes
-(columns) measured about each thing. `ddpy` recognizes two data
-structures for representating a table.
+### Why music
+High dimensions
 
-1. A list of dicts
-2. Pandas DataFrame
+thinking about multivariate analysis
 
-Each column in the table gets represented as an instrument, and each
-row in the table gets represented as a beat.
+gastronomification
 
-## Columns and data types
-The following data types can be stored in a column
+culture
 
-* Strings (`unicode` or `str`)
-* Factors (`pandas.Factor` )
-* Booleans (`bool`)
-* Integers (`int`, `numpy.int64`, &c.)
-* Floats (`float`, `numpy.float64`, &c.)
+accessibility
 
-The following sections explain how columns are structured by data type.
+### Today
+Today, you'll learn how to transform a dataset into music.
+We'll use the `ddpy` package for this tutorial, but the
+same concepts apply regardless of what tools you use to
+turn your data into music.
 
-### Strings
-Strings (`unicode` or `str`) are represented as lyrics.
-
-### Factors
-Factors (`pandas.Factor`) are represented as drum tracks, with a mapping
-between drum notes and factor levels.
-
-### Booleans
+## Install
+You'll need a means of playing MIDI files.
+[timidity++]() is one option.
 
 
-### Floats
-Floats are represented as continuous notes merging into each other through
-pitch bends.
+You'll also need [ddpy]().
 
-### Integers
-Integers are represented as discrete notes.
-The pitches are determined by the same means as for floats.
+    pip install ddpy
 
-A MIDI track can contain 16 different channels, and each channel can represent
-128 different notes, numbered 0 to 127. Thus, a single track can represent
-$$128^16 = 2^112$$ different values, which is equivalent to 112 bits.
+## Tables
+I see the whole world as collections of things,
+which I like to represent as data tables. Rows
+are records, and columns are variables.
 
+I see music the same way. A given sound is a
+function of the notes that are being played by
+various instruments, and a song consists of a
+collection of sounds. Thus, columns are
+instruments, rows are beats (or some other
+time-related thing), and cells contain notes.
 
-## Tweaking output
-Most of these tweaks to output are set by a keyword argument. These keyword
-arguments can take two structures, which we'll call the table form or the
-column form.
+![Ordinary sheet music]()
 
-The table form is just a value, and it applies to the full song. For example,
-to set the volume for the full song, you can run `to_midi(table, volume = 0.7)`.
-This is the table form.
+![Music as a spreadsheet/table, with cells containing notes like "A4" and "C#3"]()
 
-The column form allows us to specify different values for each column. This
-form is a dictionary whose keys are column names and values are parameters for
-the different columns. You do not need to specify a key-value pair for each
-column; a default value will be used for any that you don't specify.
+## Pandas to MIDI
+ddpy provides a `to_midi` function that converts
+a pandas data frame to a MIDI file.
 
-### Volume
-#### Specifying in `to_midi`
-By default, all instruments play at full volume. There are two ways of
-specifying volume: by instrument and by note.
+    to_midi(df, 'output.mid')
 
-To specify volume by instrument, pass a dictionary where the keys are
-column names and the values are instrument volumes, represented as numbers
-between 0 and 1. Columns for which you don't specify a volume use
-full volume (1) by default.
+It currently supports the following subset of data
+frame possibilities.
 
-    table = [{'debt':9001,'cats':8},{'debt':3,'cats':23}]
-    to_midi(table, volume = {'debt': 0.8})
+* ...
 
-The example above shows how to specify volume by instrument when creating
-the file with `to_midi`.
+Text is represented as lyric events, integers are
+represented as discrete beats, and floats are
+represented as notes that gradually merge into each other.
 
-To specify a volume for each note, you should structure your table such
-that cells contain `(data,volume)` tuples rather than simple `data`
-values. For example, the following code would do the exact same thing as
-the previous code.
+The main thing that probably isn't obvious to you is
+how pitches get created. MIDI files can represent 128
+different notes per instrument. If the instrument is a
+piano with exactly 128 keys (white and black), then
+zero correspends to the lowest (left-most) key, and 127
+corresponds to the right-most key. ddpy just passes
+these numbers from our data frame into the MIDI file.
 
-    table = [{'debt':(9001,0.8),'cats':8},{'debt':(3,0.8),'cats':23}]
-    to_midi(table)
+![Piano with 128 keys, numbered from 0 to 127]()
 
-If you use both methods to specify volume, the volume for a given note
-will be the product of the two volumes.
+Thus, we can compose some simple music by making columns
+with numbers from 0 to 127. Here's a chromatic scale.
 
-#### Reading in `from_midi`
-Tuple
+```python
+df = pandas.DataFrame({'chromatic':range(50, 63)})
+to_midi(df, 'chromatic.mid')
+```
 
-By default, no volume tuples
+A major scale
 
-When you reading a file with `from_midi`, the
-instrument-level volumes are not returned;
-they're just read as tuples.
+```python
+df = pandas.DataFrame({'major':[50, 52, 54, 55, 57, 59, 61, 62})
+to_midi(df, 'major_scale.mid')
+```
 
+A XXX minor scale
 
-### Key
-By default, a key of C Major is used
+```python
+df = pandas.DataFrame({'minor':[]})
+to_midi(df, 'minor_scale.mid')
+```
 
-You can change this...
+Some minor chords (multiple instruments)
 
-`from_midi` won't give you the key back
+```python
+df = pandas.DataFrame({'low':[50, 57, 64]})
+df['middle'] = df['low'] + 3
+df['high'] = df['low'] + 7
+to_midi(df, 'chords.mid')
+```
 
-### Rounding
-Rounding your data to the key signature destroys information in order to
-make the music sound better. Rounding is turned off by default, but you
-can turn it on
+Random music of different distributions
 
-### Tempo
+```python
+df = pandas.DataFrame({'normal':[round(random.normalvariate(55, 7)) for i in range(24)]})
+to_midi(df, 'normal.mid')
+```
 
+```python
+df = pandas.DataFrame({'gamma':[round(random.gammavariate(2, 3)) for i in range(24)]})
+to_midi(df, 'gamma.mid')
+```
 
+You don't always need to play something; here's a Bernoulli rhythm.
 
+```python
+df = pandas.DataFrame({'bernoulli':[(52 if random.uniform(0,1) > 0.5 else numpy.nan) for i in range(24)]})
+to_midi(df, 'bernoulli.mid')
+```
 
+### Exercise
+Load a dataset into a pandas data frame, and convert it to MIDI.
+You can use any dataset you want, but here's an option in case you
+can't come up with any. XXX
+Don't worry about doing anything that complicated; we'll do that
+later.
 
+## More about MIDI
+Let's talk a bit more about MIDI so you get a better
+feel for what is going on. I think of everything as
+tables, so I also think of MIDI files as a format for
+serializating tables, and that's how I'm going to
+explain it.
 
+A MIDI file contains up to 128 different instruments (columns).
+Each of these contains up to 16 different tracks.
+Within each track, we have a bunch of events, including
 
+* note
+* ...
 
+There are also "meta-events", which include
 
+* a
+* b
 
+Why do we need this concept of events? We are using a
+MIDI file, but you can also emit MIDI events directly to
+other software, live. These live events use the same
+protocol as the events in our file.
 
+## Preparing our data so the music sounds nice
+I've come up with a few elements in the production of
+interesting data music.
 
+scaling
 
+### Data must have a noticeable pattern.
+Random music gets boring quickly.
 
+```python
+df = pandas.DataFrame({'normal':[round(random.gammavariate(2, 3)) for i in range(72)]})
+to_midi(df, 'random.mid')
+```
 
+Similarly, empirical data that are effectively
+random aren't that interesting either.
 
-Each MIDI track has 16 channels, each of which can take 128 values.
-We represent floats and integers in base 128.
+    Example
 
-$$ 128^8 = 2^\left(7\times8\right) = 2^15 $$
+This gets more important as you add instruments
+the second instrument normally needs to have
+some relationship with the first instrument
+in order for the piece to sound good.
 
-Integers: We use odd tracks for positive numbers and even tracks for
-negative numbers. For positive numbers, he first track corresponds
-to the first place, the third track to the second place, and so on.
-For negative numbers, the second track corresponds to the first place,
-the fourth to the second, and so on.
+```python
+df = pandas.DataFrame({
+    'a':[round(random.normalvariate(55, 7)) for i in range(24)],
+    'b':[round(random.normalvariate(55, 7)) for i in range(24)],
+})
+to_midi(df, 'two_random_instruments.mid')
+```
 
-Floats: We use the first X tracks for the mantissa, the next Y tracks
-for the exponent, and the final track for the sign. The sign is represented
-as 0 or 1, with 0 being negative. Each of these components of the float
-is an integer like above but with fewer than 16 tracks.
+```python
+# XXX add a real dataset
+df = pandas.DataFrame()
+to_midi(df, 'two_related_instruments.mid')
+```
 
-This scheme is chosen so that cells containing the exact values 0, 1, 2, ... 127
-will be mapped to the identical number on the first channel in MIDI.
+Periodic trends work particularly well.
 
+```python
+# XXX add a real dataset
+df = pandas.DataFrame()
+to_midi(df, 'periodic_trends.mid')
+```
 
+#### Exercise
+Make a simple song from two variables that are somehow related.
 
-timidity -Ow output.mid
+### You're still making music
+We started with the example of mapping numbers
+to keys on a piano. You should treat this as a
+primitive operation on which more interesting
+things can be built.
 
-https://wiki.archlinux.org/index.php/timidity#TiMidity.2B.2B_does_not_play_MIDI_files
+Using Grammar of Graphics terminology, let's say
+that pitch is one aesthetic that defines our music.
+We could have other aesthetics, like the key/scale.
+You could have one column defining the note within
+a chord, another column defining the base note of
+the chord, and a third defining whether the chord
+is major or minor. Then you create one column to
+convert to MIDI.
 
-I'm not liking MIDIUtil; I don't see how to add
-MIDI events other than notes. I might switch to
-http://web.mit.edu/music21/
+```python
+# XXX add a real dataset
+df = pandas.DataFrame({
+    'year':[],
+    'prop_something': [], # scale the value to a reasonable range of base notes
+    'better_than_last_year': [], #this becomes major or minor
+})
+# Use different states from the ACS. Some interesting
+# statistic means major/minor.
+to_midi(df, 'periodic_trends.mid')
+```
 
+Also, rows in your dataset could correspond to things
+other than beats, like a measure, a phrase, or a stanza.
+This is especially helpful when you're dealing with data
+of varied resolution (for example, monthly versus daily).
 
-    import pandas, ddpy
-    df = pandas.read_csv('/home/tlevine/Documents/comparing-wifi-usage/data/chicago.csv')
-    ddpy.to_midi(df[['NUMBER OF SESSIONS']] / 600, 'chicago.mid')
+```python
+df = pandas.DataFrame({
+    'year':[],
+    'new_york':[],
+    'new_jersey':[],
+    'total':[],
+})
+# Map total to aa lower something that varies less
+# and the states to higher, melodic things. Each phrase
+# includes all of the states, each state as a separate beat.
+```
 
+#### Exercise
+Map some data onto musical aesthetics other than pitch. If you
+know any music theory, do get creative with this.
+
+For something simple, you could try chords. To make a major
+chord from a base note, play the following notes.
+
+* the base note
+* the base note plus four
+* the base note plus seven
+
+To make a minor chord, play the following notes.
+
+* the base note
+* the base note plus three
+* the base note plus seven
+
+To make a seventh chord (XXX), play the ordinary major or minor
+chord with a fourth note; the fourth note is the base note plus XXX
+
+### Gaps in data along your time variable are annoying
+Your music can get boring if it doesn't change for very long.
+This can happen if you have a particular sort of missing data.
+Let's say that you have a dataset about locations of XXX
+and you map the locations to the time variable. That might sound
+like this.
+
+```python
+```
+
+If your instrument broke between locations 88 ft and 204 ft,
+it'll sound like this.
+
+```python
+```
+
+That gap is inconvenient. If you are dealing with datasets like
+this, you'll have to come up with some way of dealing with it.
+
+For inspiration, think about how we deal with this in graphs.
+Sometimes, the gap occurs just once and we use a broken scale.
+
+XXX
+
+In some cases, it might make sense to interpolate the data and
+indicate that we are doing so.
+
+XXX
+
+In other cases, the gap really just means that we should be
+plotting our data on a different scale.
+
+XXX
+
+#### Exercise
+No exercise for this, just something to think about
+
+### Outliers are your solos
+If you follow the advice above, you'll have a very
+coherent piece, where everything within in relates to
+everything else. This in itself gets boring, but it
+allows you to create interesting sequences that
+sharply contrast the rest of the piece. And these
+interesting sequences naturally arise if you have
+outliers.
+
+    Example
+
+This is actually the same for data visuals;
+people often focus quite strongly on outliers
+in graphs.
+
+    Equivalent graph example
+
+    ![Equivalent graph]()
+
+Data music, just like data visuals, can be set up
+to emphasize specific parts of a dataset. That is,
+you could use the same dataset to produce one
+song or graph that emphasizes an trend and one that
+completely ignores it.
+
+Anyway, keep in mind that outliers make your music
+interesting.
+
+#### Exercise
+No exercise for this, just something to think about
+
+## Review
+
+* Why music
+  * Use other senses
+  * High dimensions
+  * Accessibility
+  * Getting wider audiences interested
+* Seeing music as a table
+  * Instruments are columns.
+  * Time units are rows.
+  * You may have to transform your original dataset to be in this table format.
+* MIDI
+* Tips
+  * Data need to have a pattern; random noise is boring.
+  * You're still making music, so music theory applies.
+  * Gaps along your musical time variable can be annoying.
+  * Outliers are your solos.
+
+## Other resources
