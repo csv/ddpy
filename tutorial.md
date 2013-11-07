@@ -22,9 +22,10 @@ we build for making music
 ### Today
 Today, you'll learn how to transform a dataset into music.
 We'll use the `ddpy` package for this tutorial, but the
-same concepts apply to other libraries.
+same concepts apply regardless of what tools you use to
+turn your data into music.
 
-## Dependencies
+## Install
 You'll need a means of playing MIDI files.
 [timidity++]() is one option.
 
