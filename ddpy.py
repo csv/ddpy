@@ -15,7 +15,6 @@ def to_midi(table, filename, *args, **kwargs):
     >>> import pandas; to_midi(pandas.DataFrame([{'year':2010 - 2000,'gdp':8},{'year':2011 - 2000,'gdp':9}]), 'gdp.midi')
     '''
 
-
     m = df_to_midi(table, *args, **kwargs)
 
     binfile = open(filename, 'wb')
