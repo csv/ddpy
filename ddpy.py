@@ -12,7 +12,7 @@ def to_midi(table, filename, *args, **kwargs):
     Returns:
         None
 
-    >>> import pandas; to_midi(pandas.DataFrame([{'year':2010,'gdp':8},{'year':2011,'gdp':9}]), 'gdp.midi')
+    >>> import pandas; to_midi(pandas.DataFrame([{'year':2010 - 2000,'gdp':8},{'year':2011 - 2000,'gdp':9}]), 'gdp.midi')
     '''
 
 
