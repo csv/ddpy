@@ -2,6 +2,8 @@ Data music for big data analysis
 =====
 
 ## Introduction
+[![For handle big data, solution is very simple: buy bigger monitor and use smaller font in the terminal.](borat.png)](https://twitter.com/mysqlborat/status/306078371182428161)
+
 Visualization can only support so many variables.
 In order to study high-dimensional datasets,
 we need to leverage more senses, like the sense of sound.
