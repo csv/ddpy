@@ -163,26 +163,37 @@ df = pandas.DataFrame({'normal':[round(random.gammavariate(2, 3)) for i in range
 to_midi(df, 'random.mid')
 ```
 
-
 Similarly, empirical data that are effectively
 random aren't that interesting either.
 
     Example
 
-This is obvious with one instrument, but it
-can be easy to forget when you add a second;
+This gets more important as you add instruments
 the second instrument normally needs to have
 some relationship with the first instrument
 in order for the piece to sound good.
 
-    Example with unrelated variables
+```python
+df = pandas.DataFrame({
+    'a':[round(random.normalvariate(55, 7)) for i in range(24)],
+    'b':[round(random.normalvariate(55, 7)) for i in range(24)],
+})
+to_midi(df, 'two_random_instruments.mid')
+```
 
-    Example with related variables
+```python
+# XXX add a real dataset
+df = pandas.DataFrame()
+to_midi(df, 'two_related_instruments.mid')
+```
 
 Periodic trends work particularly well.
 
-
-
+```python
+# XXX add a real dataset
+df = pandas.DataFrame()
+to_midi(df, 'periodic_trends.mid')
+```
 
 ### You're still making music
 We started with the example of mapping numbers
