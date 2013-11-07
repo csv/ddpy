@@ -210,7 +210,17 @@ the scale, and a third defining whether the scale
 is major or minor. Then you create one column to
 convert to MIDI.
 
-    Example
+```python
+# XXX add a real dataset
+df = pandas.DataFrame({
+    'year':[],
+    'something':
+    'blah':
+})
+# Use different states from the ACS. Some interesting
+# statistic means major/minor.
+to_midi(df, 'periodic_trends.mid')
+```
 
 Also, rows in your dataset could correspond to things
 other than beats, like a measure, a phrase, or a stanza.
