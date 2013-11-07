@@ -76,16 +76,31 @@ these numbers from our data frame into the MIDI file.
 ![Piano with 128 keys, numbered from 0 to 127]()
 
 Thus, we can compose some simple music by making columns
-with numbers from 0 to 127.
+with numbers from 0 to 127. Here's a chromatic scale.
 
+```python
+pandas.DataFrame({'piano':range(50, 63)})
+```
 
-Major scale
+A major scale
 
+```python
+pandas.DataFrame({'piano':[50, 52, 54, 55, 57, 59, 61, 62})
+```
 
-Minor scale
+A XXX minor scale
 
+```python
+pandas.DataFrame({'piano':[]})
+```
 
-Chord (multiple instruments)
+Some minor chords (multiple instruments)
+
+```python
+df = pandas.DataFrame({'low':[50, 57, 64]})
+df['middle'] = df['low'] + 3
+df['high'] = df['low'] + 5
+```
 
 
 Random music of different distributions
