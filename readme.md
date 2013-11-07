@@ -116,7 +116,7 @@ You'll need a means of playing MIDI files.
 [timidity++]() is one option.
 
 
-You'll also need [ddpy]().
+You'll also need [ddpy](https://github.com/csv/ddpy).
 
     pip install ddpy
 
@@ -442,3 +442,6 @@ No exercise for this, just something to think about
   * Outliers are your solos.
 
 ## Other resources
+* Copy our stuff from other places
+* Grammar of Graphics
+* Tufte
