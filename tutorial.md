@@ -303,6 +303,9 @@ plotting our data on a different scale.
 
 XXX
 
+#### Exercise
+No exercise for this, just something to think about
+
 ### Outliers are your solos
 If you follow the advice above, you'll have a very
 coherent piece, where everything within in relates to
@@ -330,3 +333,6 @@ completely ignores it.
 
 Anyway, keep in mind that outliers make your music
 interesting.
+
+#### Exercise
+No exercise for this, just something to think about
