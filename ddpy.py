@@ -1,5 +1,6 @@
 import itertools
 
+import numpy
 from midiutil.MidiFile import MIDIFile
 
 def to_midi(table, filename, *args, **kwargs):
@@ -107,7 +108,12 @@ def df_to_midi(df, bpm = 180):
         m.addTrackName(col_number,0,col_name)
         m.addTempo(col_number,0,bpm)
         for time,note in enumerate(df[col_name]):
-            m.addNote(col_number,0,note,time,1,100)
+            if numpy.isnan(note):
+                pass
+            elif note in range(128):
+                m.addNote(col_number,0,note,time,1,100)
+            else:
+                raise NotImplementedError('Only notes 0 to 127 and NaN are supported.')
     return m
 
 if __name__ == '__main__':

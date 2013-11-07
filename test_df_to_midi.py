@@ -39,8 +39,9 @@ def test_missing_value():
     expected = MIDIFile(1)
     expected.addTrackName(0,0,"guitar")
     expected.addTempo(0,0,120)
-    for time,note in enumerate([38, 42, 43]):
-        expected.addNote(0,0,note,time,1,100)
+    for time,note in enumerate([38, None, 42, 43]):
+        if note != None:
+            expected.addNote(0,0,note,time,1,100)
 
     df = pandas.DataFrame([
         {'guitar':38},
