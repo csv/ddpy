@@ -125,6 +125,13 @@ df = pandas.DataFrame({'bernoulli':[(52 if random.uniform(0,1) > 0.5 else numpy.
 to_midi(df, 'bernoulli.mid')
 ```
 
+### Exercise
+Load a dataset into a pandas data frame, and convert it to MIDI.
+You can use any dataset you want, but here's an option in case you
+can't come up with any. XXX
+Don't worry about doing anything that complicated; we'll do that
+later.
+
 ## More about MIDI
 Let's talk a bit more about MIDI so you get a better
 feel for what is going on. I think of everything as
@@ -195,6 +202,9 @@ df = pandas.DataFrame()
 to_midi(df, 'periodic_trends.mid')
 ```
 
+#### Exercise
+Make a simple song from two variables that are somehow related.
+
 ### You're still making music
 We started with the example of mapping numbers
 to keys on a piano. You should treat this as a
@@ -238,6 +248,26 @@ df = pandas.DataFrame({
 # and the states to higher, melodic things. Each phrase
 # includes all of the states, each state as a separate beat.
 ```
+
+#### Exercise
+Map some data onto musical aesthetics other than pitch. If you
+know any music theory, do get creative with this.
+
+For something simple, you could try chords. To make a major
+chord from a base note, play the following notes.
+
+* the base note
+* the base note plus four
+* the base note plus seven
+
+To make a minor chord, play the following notes.
+
+* the base note
+* the base note plus three
+* the base note plus seven
+
+To make a seventh chord (XXX), play the ordinary major or minor
+chord with a fourth note; the fourth note is the base note plus XXX
 
 ### Gaps in data along your time variable are annoying
 Your music can get boring if it doesn't change for very long.
