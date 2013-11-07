@@ -114,8 +114,15 @@ to_midi(df, 'normal.mid')
 ```
 
 ```python
-df = pandas.DataFrame({'normal':[round(random.gammavariate(2, 3)) for i in range(24)]})
+df = pandas.DataFrame({'gamma':[round(random.gammavariate(2, 3)) for i in range(24)]})
 to_midi(df, 'gamma.mid')
+```
+
+You don't always need to play something; here's a Bernoulli rhythm.
+
+```python
+df = pandas.DataFrame({'bernoulli':[(52 if random.uniform(0,1) > 0.5 else numpy.nan) for i in range(24)]})
+to_midi(df, 'bernoulli.mid')
 ```
 
 ## More about MIDI
@@ -149,9 +156,13 @@ interesting data music.
 scaling
 
 ### Data must have a noticeable pattern.
-Random music doesn't sound that interesting
+Random music gets boring quickly.
 
-    Example
+```python
+df = pandas.DataFrame({'normal':[round(random.gammavariate(2, 3)) for i in range(72)]})
+to_midi(df, 'random.mid')
+```
+
 
 Similarly, empirical data that are effectively
 random aren't that interesting either.
