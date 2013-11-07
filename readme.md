@@ -102,8 +102,8 @@ heads in different directions, but it's harder for us to focus on a particular
 range of receptors (a band of frequencies or a set of smells). We can focus
 our taste by choosing what we eat and to some degree by choosing which part
 of our tongue we put our food on, but it's still not as much focus as we get
-with vision. Touch is, perhaps, the closest stimulus to vision in the ability
-to focus on particular textures.
+with vision. Touch is, perhaps, the closest sense to vision in the ability
+to focus on particular stimuli.
 
 ### Today
 Today, you'll learn how to transform a dataset into music.
