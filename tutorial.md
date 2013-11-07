@@ -79,21 +79,21 @@ Thus, we can compose some simple music by making columns
 with numbers from 0 to 127. Here's a chromatic scale.
 
 ```python
-df = pandas.DataFrame({'piano':range(50, 63)})
+df = pandas.DataFrame({'chromatic':range(50, 63)})
 to_midi(df, 'chromatic.mid')
 ```
 
 A major scale
 
 ```python
-df = pandas.DataFrame({'piano':[50, 52, 54, 55, 57, 59, 61, 62})
+df = pandas.DataFrame({'major':[50, 52, 54, 55, 57, 59, 61, 62})
 to_midi(df, 'major_scale.mid')
 ```
 
 A XXX minor scale
 
 ```python
-df = pandas.DataFrame({'piano':[]})
+df = pandas.DataFrame({'minor':[]})
 to_midi(df, 'minor_scale.mid')
 ```
 
@@ -107,6 +107,16 @@ to_midi(df, 'chords.mid')
 ```
 
 Random music of different distributions
+
+```python
+df = pandas.DataFrame({'normal':[round(random.normalvariate(55, 7)) for i in range(24)]})
+to_midi(df, 'normal.mid')
+```
+
+```python
+df = pandas.DataFrame({'normal':[round(random.gammavariate(2, 3)) for i in range(24)]})
+to_midi(df, 'gamma.mid')
+```
 
 ## More about MIDI
 Let's talk a bit more about MIDI so you get a better
