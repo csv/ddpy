@@ -19,6 +19,17 @@ The API for ddpy is inspired largely by a prototype
 we build for making music
 [from Google Spreadsheets](https://github.com/csv/sheetmusic).
 
+### Why music
+High dimensions
+
+thinking about multivariate analysis
+
+gastronomification
+
+culture
+
+accessibility
+
 ### Today
 Today, you'll learn how to transform a dataset into music.
 We'll use the `ddpy` package for this tutorial, but the
@@ -336,3 +347,23 @@ interesting.
 
 #### Exercise
 No exercise for this, just something to think about
+
+## Review
+
+* Why music
+  * Use other senses
+  * High dimensions
+  * Accessibility
+  * Getting wider audiences interested
+* Seeing music as a table
+  * Instruments are columns.
+  * Time units are rows.
+  * You may have to transform your original dataset to be in this table format.
+* MIDI
+* Tips
+  * Data need to have a pattern; random noise is boring.
+  * You're still making music, so music theory applies.
+  * Gaps along your musical time variable can be annoying.
+  * Outliers are your solos.
+
+## Other resources
