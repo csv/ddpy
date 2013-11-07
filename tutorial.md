@@ -228,9 +228,16 @@ This is especially helpful when you're dealing with data
 of varied resolution (for example, monthly versus daily).
 
 ```python
+df = pandas.DataFrame({
+    'year':[],
+    'new_york':[],
+    'new_jersey':[],
+    'total':[],
+})
+# Map total to aa lower something that varies less
+# and the states to higher, melodic things. Each phrase
+# includes all of the states, each state as a separate beat.
 ```
-
-
 
 ### Gaps in data along your time variable are annoying
 
