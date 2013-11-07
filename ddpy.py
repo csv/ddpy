@@ -56,6 +56,7 @@ def from_midi(filename):
     >>> map(type, from_midi('gdp.midi'))
     [<type 'generator'>, <type 'dict'>]
     '''
+    raise NotImplementedError("We're not implementing this until we have a lossless to_midi function.")
     return (({} for row in range(3)), {})
 
 def _check_types(table):
