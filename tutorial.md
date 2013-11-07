@@ -240,6 +240,38 @@ df = pandas.DataFrame({
 ```
 
 ### Gaps in data along your time variable are annoying
+Your music can get boring if it doesn't change for very long.
+This can happen if you have a particular sort of missing data.
+Let's say that you have a dataset about locations of XXX
+and you map the locations to the time variable. That might sound
+like this.
+
+```python
+```
+
+If your instrument broke between locations 88 ft and 204 ft,
+it'll sound like this.
+
+```python
+```
+
+That gap is inconvenient. If you are dealing with datasets like
+this, you'll have to come up with some way of dealing with it.
+
+For inspiration, think about how we deal with this in graphs.
+Sometimes, the gap occurs just once and we use a broken scale.
+
+XXX
+
+In some cases, it might make sense to interpolate the data and
+indicate that we are doing so.
+
+XXX
+
+In other cases, the gap really just means that we should be
+plotting our data on a different scale.
+
+XXX
 
 ### Outliers are your solos
 If you follow the advice above, you'll have a very
