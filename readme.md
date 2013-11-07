@@ -20,15 +20,90 @@ we build for making music
 [from Google Spreadsheets](https://github.com/csv/sheetmusic).
 
 ### Why music
-High dimensions
+Music gives lets us use a different sense (sound) that visuals do.
+If we combine music with visuals, we can consume data through multiple
+senses and thus experience higher-dimensional data. This ability to
+represent multivariate data is the main promise I see in data-driven
+music, but I see some side benefits too. Let's talk about three benefits
+of data music.
 
-thinking about multivariate analysis
+* More dimensions
+* Accessibility
+* Reaching young people
 
-gastronomification
+#### More dimensions
+Even the best of visuals can only represent so many dimensions.
 
-culture
+![Minard's map of Napoleon's march](minard.png)
+<!-- http://upload.wikimedia.org/wikipedia/commons/2/29/Minard.png -->
 
-accessibility
+Typically, we deal with this by reducing dimensions before plotting or by making
+multiple plots, but this approach loses information. Animations can help.
+
+[![complicated plot](4l-FixedScale-NoMuProf2-preview.png)](4l-FixedScale-NoMuProf2.gif)
+
+I think the future is in multisensory data experiences. Food is the prime
+example of this, as we use all five senses in experiencing it.
+
+![Artichoke pizza](artichoke.jpg)
+<!-- http://www.flickr.com/photos/igorschwarzmann/4423705330/ -->
+
+#### Accessibility
+!["Opening Doors to IT" logo](open-doors.jpg)
+<!-- http://www.section508.gov/images/open_doors_seal-b.jpg
+
+* [Section 508](https://www.section508.gov/)
+* [Web Content Accessibility Guidelines](http://www.w3.org/TR/WCAG10/
+ -->
+
+
+#### Reaching young people
+Data is in.
+
+[![Government representatives](dubstep-preview.png)](http://www.youtube.com/watch?v=JwuEnyV1Cb0)
+
+### Thinking about sound and multivariate analysis
+Given that you're reading this, I suspect that you already know something
+about how to make meaningful plots. We've been studying data visualization
+for quite a while, so we've come up with some pretty good theory about how
+to make good graphics. Our ears work differently from our eyes, so much of
+this theory won't apply very directly. You'll have to explore different ways
+of creating sound such that our ears perceive the data properly.
+
+#### Multivariate analysis
+Here's a little tip to get you thinking. The world is multivariate, and we
+should represent that in our visuals. (As Edward Tufte would say, escape
+Flatland.) When we are representing dozens of variables at once, we can't
+expect ourselves to be able to keep track of all of the individual variables;
+once we get to more than a few variables, we tend to reduce the dimensionality
+based on some sort of unsupervised learning, like clustering or principal
+component analysis. We use these multivariate methods to get a bigger picture;
+once we have the bigger picture, we can choose to delve deeper into specific
+parts of the dataset and to look at the original variables.
+
+#### Why vision might not be great for multivariate analysis
+When you're producing music, food, or visuals from data, it's good to both
+present the bigger picture and allow people to delve deeper into specifics.
+I find that the sense of vision is particularly well suited for delving into
+specifics. This is because visuals can be static and because we can easily
+block out certain parts of visuals.
+
+When I say that visuals can be static, I mean that a person can decide with
+her eyes how long to spend looking at them. Contrast this to sound, where a
+person has to spend time listening in order to perceive a full song. With a
+visual, you can easily slow down to focus on just one part.
+
+When I say that we can block out certain parts of visuals, mean that we can
+cover up parts of the visuals and just focus on the interesting part.
+For example, we could have a huge scatterplot matrix but choose to focus on
+only one of the scatterplots. Contrast this to sound and smell; with those
+two senses, we can focus our perception by walking around or by pointing our
+heads in different directions, but it's harder for us to focus on a particular
+range of receptors (a band of frequencies or a set of smells). We can focus
+our taste by choosing what we eat and to some degree by choosing which part
+of our tongue we put our food on, but it's still not as much focus as we get
+with vision. Touch is, perhaps, the closest stimulus to vision in the ability
+to focus on particular textures.
 
 ### Today
 Today, you'll learn how to transform a dataset into music.
