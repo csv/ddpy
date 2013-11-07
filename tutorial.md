@@ -205,8 +205,8 @@ Using Grammar of Graphics terminology, let's say
 that pitch is one aesthetic that defines our music.
 We could have other aesthetics, like the key/scale.
 You could have one column defining the note within
-a scale, another column defining the base note of
-the scale, and a third defining whether the scale
+a chord, another column defining the base note of
+the chord, and a third defining whether the chord
 is major or minor. Then you create one column to
 convert to MIDI.
 
@@ -214,8 +214,8 @@ convert to MIDI.
 # XXX add a real dataset
 df = pandas.DataFrame({
     'year':[],
-    'something':
-    'blah':
+    'prop_something': [], # scale the value to a reasonable range of base notes
+    'better_than_last_year': [], #this becomes major or minor
 })
 # Use different states from the ACS. Some interesting
 # statistic means major/minor.
@@ -227,7 +227,8 @@ other than beats, like a measure, a phrase, or a stanza.
 This is especially helpful when you're dealing with data
 of varied resolution (for example, monthly versus daily).
 
-    Example
+```python
+```
 
 
 
