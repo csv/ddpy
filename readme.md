@@ -111,7 +111,7 @@ Here's a passage from Chopin's
 [Étude Op. 10, No. 1](http://en.wikipedia.org/wiki/%C3%89tude_Op._10,_No._1_%28Chopin%29)
 in ordinary sheet music.
 
-![Ordinary sheet music]()
+![Ordinary sheet music](img/Chopin_Op._10_No._1_Godowsky%27s_first_version.jpg)
 <!-- http://upload.wikimedia.org/wikipedia/commons/0/0e/Chopin_Op._10_No._1_Godowsky%27s_first_version.jpg -->
 
 And here it is as comma-separated values. (Well almost;
