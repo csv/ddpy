@@ -224,6 +224,12 @@ to_midi(df, 'bernoulli.mid')
 Load a dataset into a pandas data frame, and convert it to MIDI.
 You can use any dataset you want, but here's an option in case you
 can't come up with any. XXX
+
+```python
+df = pandas.io.wb.download(indicator=['NY.GDP.PCAP.KD','EN.ATM.CO2E.KT'],
+                           country=['US', 'CA', 'MX'], start=1900, end=2013)
+```
+
 Don't worry about doing anything that complicated; we'll do that
 later.
 
