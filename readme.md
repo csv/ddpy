@@ -375,8 +375,8 @@ df = pandas.DataFrame({
 Map some data onto musical aesthetics other than pitch. If you
 know any music theory, do get creative with this.
 
-For something simple, you could try chords. To make a major
-chord from a base note, play the following notes.
+For something simple, you could try three-note chords (triads).
+To make a major triad from a base note, play the following notes.
 
 * the base note
 * the base note plus four
@@ -387,9 +387,6 @@ To make a minor chord, play the following notes.
 * the base note
 * the base note plus three
 * the base note plus seven
-
-To make a seventh chord (XXX), play the ordinary major or minor
-chord with a fourth note; the fourth note is the base note plus XXX
 
 ### Gaps in data along your time variable are annoying
 Your music can get boring if it doesn't change for very long.
@@ -411,19 +408,21 @@ That gap is inconvenient. If you are dealing with datasets like
 this, you'll have to come up with some way of dealing with it.
 
 For inspiration, think about how we deal with this in graphs.
-Sometimes, the gap occurs just once and we use a broken scale.
+Check out this graph of a hypothetical variable X over time,
+with a gap in the 1970s.
 
-XXX
+![graph of a hypothetical variable X over time, with a gap in the 1970s](img/gap.jpg)
 
-In some cases, it might make sense to interpolate the data and
+If the gap is very large and it only occurs once, we use a
+broken scale.
+
+In other cases, it might make sense to interpolate the data and
 indicate that we are doing so.
 
-XXX
+![graph of a hypothetical variable X over time, with green dots in the 1970s-](img/gap-interpolated.jpg)
 
 In other cases, the gap really just means that we should be
 plotting our data on a different scale.
-
-XXX
 
 #### Exercise
 No exercise for this, just something to think about
@@ -435,17 +434,14 @@ everything else. This in itself gets boring, but it
 allows you to create interesting sequences that
 sharply contrast the rest of the piece. And these
 interesting sequences naturally arise if you have
-outliers.
-
-    Example
+outliers. For example, check out the financial crisis
+in [FMS Symphony](http://fms.csvsoundsystem.com/#777).
 
 This is actually the same for data visuals;
 people often focus quite strongly on outliers
-in graphs.
+in graphs. Here's a graph of the FMS Symphony data.
 
-    Equivalent graph example
-
-    ![Equivalent graph]()
+![A frame from the FMS Symphony video](img/fms-symphony-frame.png)
 
 Data music, just like data visuals, can be set up
 to emphasize specific parts of a dataset. That is,
