@@ -337,9 +337,12 @@ df = pandas.DataFrame({
 
 music = pandas.DataFrame({
     'base.note':scale_for_midi(df['gdp'], lowest = 48, highest = 60),
-}, index = gdp.index)
+    'better.than.last.year': df['better.than.last.year']
+}, index = gdp.index[1:])
 music['third'] = music['base.note'] + 4
 music[music['better.than.last.year']]['third'] = music[music['better.than.last.year']]['third'] + 1
+del music['better.than.last.year']
+to_midi(music, 'change_in_gdp.mid')
 ```
 
 Also, rows in your dataset could correspond to things
