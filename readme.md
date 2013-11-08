@@ -31,11 +31,16 @@ Rather than using these lossy visual approaches, we would like to
 represent multivariate data in a more raw form.
 How can we represent more raw variables?
 
-Animations can help.
+Chernoff faces can get us to about twenty variables.
+
+![Chernoff faces](img/720px-Chernoff_faces_for_evaluations_of_US_judges.svg.png)
+<!-- http://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Chernoff_faces_for_evaluations_of_US_judges.svg/720px-Chernoff_faces_for_evaluations_of_US_judges.svg.png -->
+
+Animations help a bit too.
 
 [![complicated plot](img/4l-FixedScale-NoMuProf2-preview.png)](img/4l-FixedScale-NoMuProf2.gif)
 
-But that only gets us a little bit further.
+But we're still only a little bit further.
 
 I think the future is in multisensory data experiences. Food is the prime
 example of this, as we use all five senses in experiencing it.
