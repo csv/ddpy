@@ -1,3 +1,7 @@
 */*pyc
 *pyc
 *.mid
+*.midi
+*.wav
+dist
+MANIFEST
