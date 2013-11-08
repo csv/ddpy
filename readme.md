@@ -242,26 +242,22 @@ explain it.
 
 A MIDI file contains up to 128 different instruments (columns).
 Each of these contains up to 16 different tracks.
-Within each track, we have a bunch of events, including
-
-* note
-* ...
-
-There are also "meta-events", which include
-
-* a
-* b
+Within each track, we have a bunch of events, like
+discrete notes and bends in pitch. There are also
+"meta-events", which include lyrics.
 
 Why do we need this concept of events? We are using a
 MIDI file, but you can also emit MIDI events directly to
 other software, live. These live events use the same
 protocol as the events in our file.
 
+ddpy currently only implements discrete notes. That
+is, you can say that a note should be played at a
+constant pitch for a certain period of time.
+
 ## Preparing our data so the music sounds nice
 I've come up with a few elements in the production of
 interesting data music.
-
-scaling
 
 ### Data must have a noticeable pattern.
 Random music gets boring quickly.
@@ -274,7 +270,11 @@ to_midi(df, 'random.mid')
 Similarly, empirical data that are effectively
 random aren't that interesting either.
 
-    Example
+```python
+df = pandas.io.wb.download(indicator='CM.MKT.INDX.ZG',
+                           country='US', start=1900, end=2010)
+to_midi(df, 'effectively_random.mid')
+```
 
 This gets more important as you add instruments
 the second instrument normally needs to have
@@ -301,10 +301,10 @@ music = pandas.DataFrame({
     'gdp':scale_for_midi(data['NY.GDP.PCAP.KD'], lowest = 36, highest = 72),
     'co2':scale_for_midi(data['EN.ATM.CO2E.KT'], lowest = 36, highest = 72),
 })
-to_midi(music, 'two_related_instruments.mid')
+to_midi(music, 'two_instruments.mid')
 ```
 
-Periodic trends work particularly well.
+Periodic trends work quite well.
 Here's [transit ridership](http://thomaslevine.com/!/ridership-rachenitsa).
 
 <video src="http://thomaslevine.com/!/ridership-rachenitsa/transit.webm" controls="" width="100%"></video>
