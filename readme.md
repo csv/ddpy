@@ -67,6 +67,12 @@ music, but I see some side benefits too.
 * [Web Content Accessibility Guidelines](http://www.w3.org/TR/WCAG10/
  -->
 
+#### Ambient perception
+With traditional data visualizations, we need to focus
+actively on the visualization. With sound, it is natural
+to have a data sonification playing in the background
+all of the time, like music.
+
 #### Reaching young people
 Data is in.
 
