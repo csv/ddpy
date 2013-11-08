@@ -117,6 +117,10 @@ in ordinary sheet music.
 And here it is as comma-separated values. (Well almost;
 it doesn't include the two chords of dotted half notes.)
 
+<!--
+![The sheet music as csv](img/csv.png)
+-->
+
     left_hand, right_hand
     NA,        NA
     C2,        E6
