@@ -197,7 +197,7 @@ zero correspends to the lowest (left-most) key, and 127
 corresponds to the right-most key. ddpy just passes
 these numbers from our data frame into the MIDI file.
 
-![Piano with 128 keys, numbered from 0 to 127]()
+![Piano with 128 keys, numbered from 0 to 127](img/midi-piano.jpg)
 
 Thus, we can compose some simple music by making columns
 with numbers from 0 to 127. Here's a chromatic scale.
@@ -207,20 +207,19 @@ df = pandas.DataFrame({'chromatic':range(50, 63)})
 to_midi(df, 'chromatic.mid')
 ```
 
-A major scale
+A major (Ionian) scale
 
 ```python
 df = pandas.DataFrame({'major':[50, 52, 54, 55, 57, 59, 61, 62})
 to_midi(df, 'major_scale.mid')
 ```
 
-A XXX minor scale
+A natural minor (Aeolian) scale
 
 ```python
-df = pandas.DataFrame({'minor':[]})
+df = pandas.DataFrame({'minor':[50, 52, 53, 55, 57, 58, 60, 62]})
 to_midi(df, 'minor_scale.mid')
 ```
-
 Some minor chords (multiple instruments)
 
 ```python
@@ -241,7 +240,6 @@ to_midi(df, 'normal.mid')
 df = pandas.DataFrame({'gamma':[round(random.gammavariate(2, 3)) for i in range(24)]})
 to_midi(df, 'gamma.mid')
 ```
-
 You don't always need to play something; here's a Bernoulli rhythm.
 
 ```python
