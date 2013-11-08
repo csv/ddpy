@@ -339,8 +339,8 @@ df = pandas.DataFrame({
 music = pandas.DataFrame({
     'base.note':scale_for_midi(df['gdp'], lowest = 48, highest = 60),
     'better.than.last.year': df['better.than.last.year'],
-    'downbeat':reduce(lambda a,b:a+b,[[12, numpy.nan, numpy.nan, numpy.nan] for i in range(df.shape[0])])[:shape[0]],
-    'thirdbeat':reduce(lambda a,b:a+b,[[numpy.nan, numpy.nan, 24, numpy.nan] for i in range(df.shape[0])])[:shape[0]],
+    'downbeat':reduce(lambda a,b:a+b,[[12, numpy.nan, numpy.nan, numpy.nan] for i in range(df.shape[0])])[:df.shape[0]],
+    'thirdbeat':reduce(lambda a,b:a+b,[[numpy.nan, numpy.nan, 24, numpy.nan] for i in range(df.shape[0])])[:df.shape[0]],
 })
 music['third'] = music['base.note'] + 4
 music[music['better.than.last.year']]['third'] = music[music['better.than.last.year']]['third'] + 1
