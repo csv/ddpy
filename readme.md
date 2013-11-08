@@ -1,6 +1,8 @@
 Data music for big data analysis
 =====
 
+*To see just the figures in the present document, run `make slides`.*
+
 ## Introduction
 [![For handle big data, solution is very simple: buy bigger monitor and use smaller font in the terminal.](img/borat.png)](https://twitter.com/mysqlborat/status/306078371182428161)
 
