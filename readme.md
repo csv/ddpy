@@ -2,7 +2,7 @@ Data music for big data analysis
 =====
 
 ## Introduction
-[![For handle big data, solution is very simple: buy bigger monitor and use smaller font in the terminal.](borat.png)](https://twitter.com/mysqlborat/status/306078371182428161)
+[![For handle big data, solution is very simple: buy bigger monitor and use smaller font in the terminal.](img/borat.png)](https://twitter.com/mysqlborat/status/306078371182428161)
 
 Visualization can only support so many variables.
 In order to study high-dimensional datasets,
@@ -36,22 +36,22 @@ of data music.
 #### More dimensions
 Even the best of visuals can only represent so many dimensions.
 
-![Minard's map of Napoleon's march](minard.png)
+![Minard's map of Napoleon's march](img/minard.png)
 <!-- http://upload.wikimedia.org/wikipedia/commons/2/29/Minard.png -->
 
 Typically, we deal with this by reducing dimensions before plotting or by making
 multiple plots, but this approach loses information. Animations can help.
 
-[![complicated plot](4l-FixedScale-NoMuProf2-preview.png)](4l-FixedScale-NoMuProf2.gif)
+[![complicated plot](img/4l-FixedScale-NoMuProf2-preview.png)](img/4l-FixedScale-NoMuProf2.gif)
 
 I think the future is in multisensory data experiences. Food is the prime
 example of this, as we use all five senses in experiencing it.
 
-![Artichoke pizza](artichoke.jpg)
+![Artichoke pizza](img/artichoke.jpg)
 <!-- http://www.flickr.com/photos/igorschwarzmann/4423705330/ -->
 
 #### Accessibility
-!["Opening Doors to IT" logo](open-doors.jpg)
+!["Opening Doors to IT" logo](img/open-doors.jpg)
 <!-- http://www.section508.gov/images/open_doors_seal-b.jpg
 
 * [Section 508](https://www.section508.gov/)
@@ -62,7 +62,7 @@ example of this, as we use all five senses in experiencing it.
 #### Reaching young people
 Data is in.
 
-[![Government representatives](dubstep-preview.png)](http://www.youtube.com/watch?v=JwuEnyV1Cb0)
+[![Government representatives](img/dubstep-preview.png)](http://www.youtube.com/watch?v=JwuEnyV1Cb0)
 
 ### Thinking about sound and multivariate analysis
 Given that you're reading this, I suspect that you already know something
