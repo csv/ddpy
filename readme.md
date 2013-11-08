@@ -141,9 +141,8 @@ in ordinary sheet music.
 ![Ordinary sheet music]()
 <!-- http://upload.wikimedia.org/wikipedia/commons/0/0e/Chopin_Op._10_No._1_Godowsky%27s_first_version.jpg -->
 
-And here it is as comma-separated values. (Well almost.
-ddpy does not yet support notes of variable length,
-so it doesn't include the dotted half notes.)
+And here it is as comma-separated values. (Well almost;
+it doesn't include the two chords of dotted half notes.)
 
     left_hand, right_hand
     NA,        NA
