@@ -170,6 +170,10 @@ it doesn't include the two chords of dotted half notes.)
     G2,        E3
     C2,        C3
 
+Rather than composing music as traditional sheet music,
+we can use a table-editing program of our choice to compose
+this sort of table.
+
 ## Pandas to MIDI
 ddpy provides a `to_midi` function that converts
 a pandas data frame to a MIDI file.
