@@ -97,6 +97,16 @@ You'll also need [ddpy](https://github.com/csv/ddpy).
 
     pip install ddpy
 
+## Imports
+The code examples below expect the following to have been run.
+
+```python
+import numpy
+import pandas
+import pandas.io.wb
+from ddpy import to_midi
+```
+
 ## Tables
 I see the whole world as collections of things,
 which I like to represent as data tables. Rows
