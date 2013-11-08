@@ -1,8 +1,6 @@
 Data music for big data analysis
 =====
 
-*To see just the figures in the present document, run `make slides`.*
-
 ## Introduction
 [![For handle big data, solution is very simple: buy bigger monitor and use smaller font in the terminal.](img/borat.png)](https://twitter.com/mysqlborat/status/306078371182428161)
 
@@ -484,3 +482,12 @@ to focus on particular stimuli.
   * [sheet music](http://csv.github.io/sheetmusic/)
 * The Grammar of Graphics
 * Any book by Edward Tufte
+
+Slides
+-----
+To see just the figures in the present document, run this.
+
+```sh
+npm install -g reveal-md
+make slides
+```
