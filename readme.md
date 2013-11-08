@@ -135,6 +135,7 @@ instruments, rows are beats (or some other
 time-related thing), and cells contain notes.
 
 ![Ordinary sheet music]()
+<!-- http://upload.wikimedia.org/wikipedia/commons/0/0e/Chopin_Op._10_No._1_Godowsky%27s_first_version.jpg -->
 
 ![Music as a spreadsheet/table, with cells containing notes like "A4" and "C#3"]()
 
