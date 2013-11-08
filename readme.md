@@ -343,6 +343,7 @@ music = pandas.DataFrame({
 music['third'] = music['base.note'] + 4
 music[music['better.than.last.year']]['third'] = music[music['better.than.last.year']]['third'] + 1
 del music['better.than.last.year']
+
 to_midi(music, 'change_in_gdp.mid')
 ```
 
@@ -371,17 +372,30 @@ To make a minor chord, play the following notes.
 ### Gaps in data along your time variable are annoying
 Your music can get boring if it doesn't change for very long.
 This can happen if you have a particular sort of missing data.
-Let's say that you have a dataset about locations of XXX
-and you map the locations to the time variable. That might sound
-like this.
+Let's say that you have the same GDP data as above but that
+you don't have the data for the 1970s.
 
 ```python
-```
+gdp_df = pandas.io.wb.download(indicator='NY.GDP.PCAP.KD',country='US', start=1900, end=2012)
 
-If your instrument broke between locations 88 ft and 204 ft,
-it'll sound like this.
+# Lose the data.
+gdp_df = gdp_df.ix[:23].concat(gdp_df.ix[32:])
 
-```python
+gdp = list(reversed(gdp_df['NY.GDP.PCAP.KD']))
+df = pandas.DataFrame({
+    'gdp':gdp[1:],
+    'better.than.last.year': gdp[1:] > gdp[:-1],
+})
+
+music = pandas.DataFrame({
+    'base.note':scale_for_midi(df['gdp'], lowest = 48, highest = 60),
+    'better.than.last.year': df['better.than.last.year']
+})
+music['third'] = music['base.note'] + 4
+music[music['better.than.last.year']]['third'] = music[music['better.than.last.year']]['third'] + 1
+del music['better.than.last.year']
+
+to_midi(music, 'missing_data.mid')
 ```
 
 That gap is inconvenient. If you are have datasets like this,
