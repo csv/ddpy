@@ -159,10 +159,8 @@ a pandas data frame to a MIDI file.
 
     to_midi(df, 'output.mid')
 
-It currently supports the following subset of data
-frame possibilities.
-
-* ...
+It currently only supports integer columns containing
+integers from 0 to 127.
 
 Text is represented as lyric events, integers are
 represented as discrete beats, and floats are
