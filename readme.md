@@ -369,55 +369,6 @@ To make a minor chord, play the following notes.
 * the base note plus three
 * the base note plus seven
 
-### Gaps in data along your time variable are annoying
-Your music can get boring if it doesn't change for very long.
-This can happen if you have a particular sort of missing data.
-Let's say that you have the same GDP data as above but that
-you don't have the data for the 1970s.
-
-```python
-gdp_df = pandas.io.wb.download(indicator='NY.GDP.PCAP.KD',country='US', start=1900, end=2012)
-
-# Lose the data.
-gdp_df = gdp_df.ix[:23].concat(gdp_df.ix[32:])
-
-gdp = list(reversed(gdp_df['NY.GDP.PCAP.KD']))
-df = pandas.DataFrame({
-    'gdp':gdp[1:],
-    'better.than.last.year': gdp[1:] > gdp[:-1],
-})
-
-music = pandas.DataFrame({
-    'base.note':scale_for_midi(df['gdp'], lowest = 48, highest = 60),
-    'better.than.last.year': df['better.than.last.year']
-})
-music['third'] = music['base.note'] + 4
-music[music['better.than.last.year']]['third'] = music[music['better.than.last.year']]['third'] + 1
-del music['better.than.last.year']
-
-to_midi(music, 'missing_data.mid')
-```
-
-That gap is inconvenient. If you are have datasets like this,
-you'll have to come up with some way of dealing with the gap.
-
-For inspiration, think about how we deal with this in graphs.
-Check out this graph of a hypothetical variable X over time,
-with a gap in the 1970s.
-
-![graph of a hypothetical variable X over time, with a gap in the 1970s](img/gap.jpg)
-
-If the gap is very large and it only occurs once, we use a
-broken scale.
-
-In other cases, it might make sense to interpolate the data and
-indicate that we are doing so.
-
-![graph of a hypothetical variable X over time, with green dots in the 1970s-](img/gap-interpolated.jpg)
-
-In other cases, the gap really just means that we should be
-plotting our data on a different scale.
-
 ### Outliers are your solos
 If you follow the advice above, you'll have a very
 coherent piece, where everything within in relates to
