@@ -223,7 +223,7 @@ to_midi(df, 'bernoulli.mid')
 ### Exercise
 Load a dataset into a pandas data frame, and convert it to MIDI.
 You can use any dataset you want, but here's an option in case you
-can't come up with any. XXX
+can't come up with any.
 
 ```python
 df = pandas.io.wb.download(indicator=['NY.GDP.PCAP.KD','EN.ATM.CO2E.KT'],
@@ -290,9 +290,18 @@ to_midi(df, 'two_random_instruments.mid')
 ```
 
 ```python
-# XXX add a real dataset
-df = pandas.DataFrame()
-to_midi(df, 'two_related_instruments.mid')
+data = pandas.io.wb.download(indicator=['NY.GDP.PCAP.KD','EN.ATM.CO2E.KT'],
+                             country='US', start=1900, end=2010)
+
+def scale_for_midi(series, lowest = 0, highest = 127):
+    series_int = series.map(float).map(int)
+    return lowest + (highest - lowest) * (series_int - series_int.min()) / (series_int.max() - series_int.min())
+
+music = pandas.DataFrame({
+    'gdp':scale_for_midi(data['NY.GDP.PCAP.KD'], lowest = 36, highest = 72),
+    'co2':scale_for_midi(data['EN.ATM.CO2E.KT'], lowest = 36, highest = 72),
+})
+to_midi(music, 'two_related_instruments.mid')
 ```
 
 Periodic trends work particularly well.
