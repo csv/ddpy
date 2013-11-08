@@ -474,6 +474,11 @@ No exercise for this, just something to think about
   * Outliers are your solos.
 
 ## Other resources
-* Copy our stuff from other places
+* A talk about [Music videos in R](http://livestre.am/4pN67)
+* [A blog post](http://thomaslevine.com/!/sensory-data-experiences/) about this stuff
+* Tools
+  * [Data-driven rhythms](https://github.com/csv/ddr)
+  * [ddpy](https://github.com/csv/ddpy)
+  * [sheet music](http://csv.github.io/sheetmusic/)
 * Grammar of Graphics
-* Tufte
+* Edward Tufte
