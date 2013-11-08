@@ -305,15 +305,13 @@ to_midi(music, 'two_related_instruments.mid')
 ```
 
 Periodic trends work particularly well.
+Here's [transit ridership](http://thomaslevine.com/!/ridership-rachenitsa).
 
-```python
-# XXX add a real dataset
-df = pandas.DataFrame()
-to_midi(df, 'periodic_trends.mid')
-```
+<video src="http://thomaslevine.com/!/ridership-rachenitsa/transit.webm" controls="" width="100%"></video>
 
 #### Exercise
 Make a simple song from two variables that are somehow related.
+Again, use any dataset you want.
 
 ### You're still making music
 We started with the example of mapping numbers
@@ -331,33 +329,23 @@ is major or minor. Then you create one column to
 convert to MIDI.
 
 ```python
-# XXX add a real dataset
+gdp = pandas.io.wb.download(indicator='NY.GDP.PCAP.KD',country='US', start=1900, end=2012)
 df = pandas.DataFrame({
-    'year':[],
-    'prop_something': [], # scale the value to a reasonable range of base notes
-    'better_than_last_year': [], #this becomes major or minor
-})
-# Use different states from the ACS. Some interesting
-# statistic means major/minor.
-to_midi(df, 'periodic_trends.mid')
+    'gdp':gdp['NY.GDP.PCAP.KD'][1:],
+    'better.than.last.year': gdp['NY.GDP.PCAP.KD'][1:] > gdp['NY.GDP.PCAP.KD'][:-1],
+}, index = gdp.index[1:])
+
+music = pandas.DataFrame({
+    'base.note':scale_for_midi(df['gdp'], lowest = 48, highest = 60),
+}, index = gdp.index)
+music['third'] = music['base.note'] + 4
+music[music['better.than.last.year']]['third'] = music[music['better.than.last.year']]['third'] + 1
 ```
 
 Also, rows in your dataset could correspond to things
 other than beats, like a measure, a phrase, or a stanza.
 This is especially helpful when you're dealing with data
 of varied resolution (for example, monthly versus daily).
-
-```python
-df = pandas.DataFrame({
-    'year':[],
-    'new_york':[],
-    'new_jersey':[],
-    'total':[],
-})
-# Map total to aa lower something that varies less
-# and the states to higher, melodic things. Each phrase
-# includes all of the states, each state as a separate beat.
-```
 
 #### Exercise
 Map some data onto musical aesthetics other than pitch. If you
