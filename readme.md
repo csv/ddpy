@@ -24,7 +24,7 @@ branch, army size. (You could arrive at a slightly different
 number if define the variables differently.)
 
 The best of visualizations only supports a few variables,
-but today's data contain thousands variables.
+but today's data might contain thousands of variables.
 Typically, we deal with this by reducing dimensions before plotting
 or by making multiple plots, but these approaches lose information.
 Rather than using these lossy visual approaches, we would like to
