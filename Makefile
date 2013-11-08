@@ -5,4 +5,4 @@ slides:
 	echo 'csv soundsystem ([csvsoundsystem.com](http://csvsoundsystem.com))' >> slides.md
 	echo >> slides.md
 	grep '^\(\[\?!\|##\)' readme.md | sed -e 's/^##/#/' -e 's/^/\n/' >> slides.md
-	reveal-md -s '\n\n' slides.md
+	reveal-md -t solarized -s '\n\n' slides.md
