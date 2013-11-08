@@ -134,10 +134,42 @@ collection of sounds. Thus, columns are
 instruments, rows are beats (or some other
 time-related thing), and cells contain notes.
 
+Here's a passage from Chopin's
+[Étude Op. 10, No. 1](http://en.wikipedia.org/wiki/%C3%89tude_Op._10,_No._1_%28Chopin%29)
+in ordinary sheet music.
+
 ![Ordinary sheet music]()
 <!-- http://upload.wikimedia.org/wikipedia/commons/0/0e/Chopin_Op._10_No._1_Godowsky%27s_first_version.jpg -->
 
-![Music as a spreadsheet/table, with cells containing notes like "A4" and "C#3"]()
+And here it is as comma-separated values. (Well almost.
+ddpy does not yet support notes of variable length,
+so it doesn't include the dotted half notes.)
+
+    left_hand, right_hand
+    NA,        NA
+    C2,        E6
+    G2,        C6
+    C3,        G5
+    E3,        C5
+    C3,        E5
+    G3,        C5
+    C4,        G4
+    E4,        C4
+    C4,        G4
+    G4,        C5
+    C5,        G5
+    E5,        C6
+    C5,        G5
+    G4,        C5
+    C4,        G5
+    E4,        C5
+    C4,        G4
+    G3,        C4
+    C3,        E4
+    E3,        C4
+    C3,        G3
+    G2,        E3
+    C2,        C3
 
 ## Pandas to MIDI
 ddpy provides a `to_midi` function that converts
