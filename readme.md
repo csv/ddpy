@@ -115,8 +115,8 @@ turn your data into music.
 
 ## Install
 You'll need a means of playing MIDI files.
-[timidity++]() is one option.
-
+[timidity++](http://timidity.sourceforge.net/) is one option.
+Or just use a website like [SolMiRe](http://solmire.com).
 
 You'll also need [ddpy](https://github.com/csv/ddpy).
 
