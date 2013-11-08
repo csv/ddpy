@@ -4,9 +4,44 @@ Data music for big data analysis
 ## Introduction
 [![For handle big data, solution is very simple: buy bigger monitor and use smaller font in the terminal.](img/borat.png)](https://twitter.com/mysqlborat/status/306078371182428161)
 
-Visualization can only support so many variables.
-In order to study high-dimensional datasets,
-we need to leverage more senses, like the sense of sound.
+Today, we produce more digital content than ever before.
+Making sense of the data is becoming harder as the data
+get more complex, so we need to develop new tools.
+In particular, we need something more powerful than data visualization.
+
+### The problem with data visualization
+Data visualization cannot support wide datasets, with lots
+of variables.
+
+![Minard's map of Napoleon's march](img/minard.png)
+<!-- http://upload.wikimedia.org/wikipedia/commons/2/29/Minard.png -->
+
+This plot of Napoleon's march is seen as an exceptional
+piece of data visualization that conveys the multivariate
+relationships in the world, and it contains about seven
+variables: Longitude, latitude, date, temperature, direction
+branch, army size. (You could arrive at a slightly different
+number if define the variables differently.)
+
+The best of visualizations only supports a few variables,
+but today's data contain thousands variables. What can we
+do about that?
+
+Animations can help.
+
+[![complicated plot](img/4l-FixedScale-NoMuProf2-preview.png)](img/4l-FixedScale-NoMuProf2.gif)
+
+But that only gets us a little bit further.
+
+The future is in multisensory data experiences. Food is the prime
+example of this, as we use all five senses in experiencing it.
+
+![Artichoke pizza](img/artichoke.jpg)
+<!-- http://www.flickr.com/photos/igorschwarzmann/4423705330/ -->
+
+Unfortunately, computers don't have particularly good APIs for touch,
+taste or smell, so it is harder to represent your data for these senses.
+On the other hand, they do have good sound APIs, so we can start there.
 
 ### History of ddpy
 [csv soundsystem](http://csvsoundsystem.com) makes
@@ -21,8 +56,8 @@ The API for ddpy is inspired largely by a prototype
 we build for making music
 [from Google Spreadsheets](https://github.com/csv/sheetmusic).
 
-### Why music
-Music gives lets us use a different sense (sound) that visuals do.
+### Other reasons for music
+As we explained above, music gives lets us use a different sense (sound) that visuals do.
 If we combine music with visuals, we can consume data through multiple
 senses and thus experience higher-dimensional data. This ability to
 represent multivariate data is the main promise I see in data-driven
@@ -34,21 +69,18 @@ of data music.
 * Reaching young people
 
 #### More dimensions
-Even the best of visuals can only represent so many dimensions.
+As discussed above, even the best of visuals can only represent so many dimensions.
 
 ![Minard's map of Napoleon's march](img/minard.png)
 <!-- http://upload.wikimedia.org/wikipedia/commons/2/29/Minard.png -->
 
 Typically, we deal with this by reducing dimensions before plotting or by making
-multiple plots, but this approach loses information. Animations can help.
+multiple plots, but these approaches lose information.
 
-[![complicated plot](img/4l-FixedScale-NoMuProf2-preview.png)](img/4l-FixedScale-NoMuProf2.gif)
 
-I think the future is in multisensory data experiences. Food is the prime
-example of this, as we use all five senses in experiencing it.
 
-![Artichoke pizza](img/artichoke.jpg)
-<!-- http://www.flickr.com/photos/igorschwarzmann/4423705330/ -->
+Rather than using these lossy visual approaches, we would like to represent multivariate
+data in a more raw form.
 
 #### Accessibility
 !["Opening Doors to IT" logo](img/open-doors.jpg)
@@ -482,11 +514,3 @@ No exercise for this, just something to think about
   * [sheet music](http://csv.github.io/sheetmusic/)
 * Grammar of Graphics
 * Edward Tufte
-
-
-
-```python
-import urllib
-urllib.urlretrieve('http://www2.census.gov/acs2012_1yr/summaryfile/2012_ACSSF_By_State_By_Sequence_Table_Subset/UnitedStates/g20121us.csv')
-df = pandas.read_csv('g20121us.csv', header = None)
-```
