@@ -329,10 +329,10 @@ is major or minor. Then you create one column to
 convert to MIDI.
 
 ```python
-# gdp_df = pandas.io.wb.download(indicator='NY.GDP.PCAP.KD',country='US', start=1900, end=2012)
+gdp_df = pandas.io.wb.download(indicator='NY.GDP.PCAP.KD',country='US', start=1900, end=2012)
 gdp = list(reversed(gdp_df['NY.GDP.PCAP.KD']))
 df = pandas.DataFrame({
-    'gdp':gdp[:-1],
+    'gdp':gdp[1:],
     'better.than.last.year': gdp[1:] > gdp[:-1],
 })
 
