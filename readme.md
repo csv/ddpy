@@ -329,16 +329,17 @@ is major or minor. Then you create one column to
 convert to MIDI.
 
 ```python
-gdp = pandas.io.wb.download(indicator='NY.GDP.PCAP.KD',country='US', start=1900, end=2012)
+# gdp_df = pandas.io.wb.download(indicator='NY.GDP.PCAP.KD',country='US', start=1900, end=2012)
+gdp = list(reversed(gdp_df['NY.GDP.PCAP.KD']))
 df = pandas.DataFrame({
-    'gdp':gdp['NY.GDP.PCAP.KD'][1:],
-    'better.than.last.year': gdp['NY.GDP.PCAP.KD'][1:] > gdp['NY.GDP.PCAP.KD'][:-1],
-}, index = gdp.index[1:])
+    'gdp':gdp[:-1],
+    'better.than.last.year': gdp[1:] > gdp[:-1],
+})
 
 music = pandas.DataFrame({
     'base.note':scale_for_midi(df['gdp'], lowest = 48, highest = 60),
     'better.than.last.year': df['better.than.last.year']
-}, index = gdp.index[1:])
+})
 music['third'] = music['base.note'] + 4
 music[music['better.than.last.year']]['third'] = music[music['better.than.last.year']]['third'] + 1
 del music['better.than.last.year']
