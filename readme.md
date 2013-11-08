@@ -404,8 +404,8 @@ it'll sound like this.
 ```python
 ```
 
-That gap is inconvenient. If you are dealing with datasets like
-this, you'll have to come up with some way of dealing with it.
+That gap is inconvenient. If you are have datasets like this,
+you'll have to come up with some way of dealing with the gap.
 
 For inspiration, think about how we deal with this in graphs.
 Check out this graph of a hypothetical variable X over time,
@@ -482,3 +482,11 @@ No exercise for this, just something to think about
   * [sheet music](http://csv.github.io/sheetmusic/)
 * Grammar of Graphics
 * Edward Tufte
+
+
+
+```python
+import urllib
+urllib.urlretrieve('http://www2.census.gov/acs2012_1yr/summaryfile/2012_ACSSF_By_State_By_Sequence_Table_Subset/UnitedStates/g20121us.csv')
+df = pandas.read_csv('g20121us.csv', header = None)
+```
